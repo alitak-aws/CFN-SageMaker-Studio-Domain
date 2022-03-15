@@ -63,9 +63,9 @@ Mappings:
       datawrangler: "arn:aws:sagemaker:sa-east-1:424196993095:image/sagemaker-data-wrangler-1.0"
 
 Parameters:
-  S3BucketName:
-    Type: String
-    Default: test-bucket-workshop
+  # S3BucketName:
+  #   Type: String
+  #   Default: test-bucket-workshop
   DomainName:
     Type: String
     Description: "Domain name "
@@ -143,33 +143,33 @@ Resources:
       RoleName: 'SageMakerExecutionExe'
 
 
-  S3bucket:
-    Type: AWS::S3::Bucket
-    DependsOn: InvokePermission
-    Properties:
-      BucketName: !Ref S3BucketName
-      NotificationConfiguration:
-        LambdaConfigurations:
-          - Event: s3:ObjectCreated:Put
-            # Filter:
-            #   S3Key:
-            #     Rules:
-            #       - Name: suffix
-            #         Value: txt
-            Function: !GetAtt [ lambdaFunction, Arn]
+  # S3bucket:
+  #   Type: AWS::S3::Bucket
+  #   DependsOn: InvokePermission
+  #   Properties:
+  #     BucketName: !Ref S3BucketName
+  #     NotificationConfiguration:
+  #       LambdaConfigurations:
+  #         - Event: s3:ObjectCreated:Put
+  #           # Filter:
+  #           #   S3Key:
+  #           #     Rules:
+  #           #       - Name: suffix
+  #           #         Value: txt
+  #           Function: !GetAtt [ lambdaFunction, Arn]
 
-  InvokePermission:
-    Type: AWS::Lambda::Permission
-    DependsOn: lambdaFunction
-    Properties:
-      FunctionName:
-        Fn::GetAtt:
-          - lambdaFunction
-          - Arn
-      Action: lambda:InvokeFunction
-      Principal: s3.amazonaws.com
-      SourceArn:
-        Fn::Sub: arn:aws:s3:::${S3BucketName}
+  # InvokePermission:
+  #   Type: AWS::Lambda::Permission
+  #   DependsOn: lambdaFunction
+  #   Properties:
+  #     FunctionName:
+  #       Fn::GetAtt:
+  #         - lambdaFunction
+  #         - Arn
+  #     Action: lambda:InvokeFunction
+  #     Principal: s3.amazonaws.com
+  #     SourceArn:
+  #       Fn::Sub: arn:aws:s3:::${S3BucketName}
 
   lambdaFunction:
     Type: AWS::Lambda::Function
