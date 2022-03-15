@@ -4,7 +4,9 @@
 
 The first step is to deploy a CloudFormation template that will perform much of the initial setup work for you. In another tab, login to your AWS account. Once you have done that, open the link below in a new tab (right click on the icon below) to start the process of deploying the items you need via CloudFormation.
 
-[![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=workshop&templateURL=https://cf-templates-j7hsyuqasrp5-us-west-2.s3.us-west-2.amazonaws.com/2022070ddG-SM_studio_cfn.yaml)
+[![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=workshop&templateURL=https://s3-external-1.amazonaws.com/cf-templates-j7hsyuqasrp5-us-east-1/2022074GqY-SM_studio_cfn.yaml)
+
+
 
 Follow along with the screenshots below if you have any questions about deploying the stack.
 
